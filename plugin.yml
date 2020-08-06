@@ -1,0 +1,14 @@
+name: EasyRepairItems
+main: GodWeedZao\EasyRepairItems\Main
+version: 1.0.0
+api: 3.0.0
+load: POSTWORLD
+author: GodWeedZao
+description: Repair Your Items Easily.
+depend: [EconomyAPI]
+commands:
+  repair:
+    describtion: "Repair Your Items Easily."
+permissions:
+  Repair.Free:
+    default: op
