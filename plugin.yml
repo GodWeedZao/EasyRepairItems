@@ -4,11 +4,11 @@ version: 1.0.0
 api: 3.0.0
 load: POSTWORLD
 author: GodWeedZao
-description: Repair Your Items Easily.
+description: Repair damaged items in hand.
 depend: [EconomyAPI]
 commands:
   repair:
-    describtion: "Repair Your Items Easily."
+    describtion: "Repair Damaged Item In Hand"
 permissions:
-  Repair.Free:
+  EasyRepairItems.command:
     default: op
