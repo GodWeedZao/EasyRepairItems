@@ -2,6 +2,8 @@
 XP: true
 #Money: set it to true if you want to players repair their Items with their Money (EconomyAPI)
 MONEY: false
+#if you want to send Title to player, when player Repair Item in hand Succes.
+Send-Title-Success: true
 #if you set Money to true, you should set a price for item repairing.
 Repair-Item-Price-Money: 1000
 #if you set Xp to true, you should set a price for items repairing.
