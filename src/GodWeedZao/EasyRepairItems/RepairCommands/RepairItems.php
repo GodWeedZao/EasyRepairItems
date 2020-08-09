@@ -36,14 +36,14 @@ class RepairItems
             $slot = $player->getInventory()->getHeldItemIndex();
             $Item = $player->getInventory()->getItem($slot);
             if ($Item->getDamage() > 0) {
-                if (!$player->hasPermission("Repair.Free")) {
+                if (!$player->hasPermission("EasyRepairItems.command")) {
                     if (count($Item->getEnchantments()) !== 0) {
                         if ($money >= $enchantedPrice) {
                             $EconomyAPI->reduceMoney($player, $price);
                             $player->getInventory()->setItem($slot, $Item->setDamage(0));
                             $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
                         } else {
-                            $player->sendMessage("§l§cYou Dont Have Enough Money For Repair Your Held Item.");
+                            $player->sendMessage("§l§cYou Dont Have Enough Money For Repair Your Held Item. \n§eYou need: §6" . $enchantedPrice - $money . " §eMore Money To Repair Items.");
                         }
                     }
                     if ($money >= $price) {
@@ -51,7 +51,7 @@ class RepairItems
                         $player->getInventory()->setItem($slot, $Item->setDamage(0));
                         $player->addTitle(Main::Config("Success"), "§bRepaired Successful.");
                     } else {
-                        $player->sendMessage("§l§4You Dont Have Enough Money To Repair!");
+                        $player->sendMessage("§l§4You Dont Have Enough Money For Repair Your Held Item. \n§eYou need: §6" . $price - $money . " §eMore Money To Repair Items.");
                     }
                 } else {
                     $player->getInventory()->setItem($slot, $Item->setDamage(0));
@@ -68,7 +68,7 @@ class RepairItems
             $slot = $player->getInventory()->getHeldItemIndex();
             $Item = $player->getInventory()->getItem($slot);
             if ($Item->getDamage() > 0) {
-                if (!$player->hasPermission("Repair.Free")) {
+                if (!$player->hasPermission("EasyRepairItems.command")) {
                     if (count($Item->getEnchantments()) !== 0) {
                         if ($xp >= $enchantedPrice) {
                             $reduce = $this->plugin->MinesXp($xp, $enchantedPrice);
@@ -76,7 +76,7 @@ class RepairItems
                             $player->getInventory()->setItem($slot, $Item->setDamage(0));
                             $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
                         } else {
-                            $player->sendMessage("§l§cYou Dont Have Enough Xp For Repair Your Held Item.");
+                            $player->sendMessage("§l§4You Dont Have Enough Xp For Repair Your Held Item. \n§eYou need: §6" . $enchantedPrice - $xp . " §eMore Xp To Repair Items.");
                         }
                     }
                     if ($xp >= $price) {
@@ -85,7 +85,7 @@ class RepairItems
                         $player->getInventory()->setItem($slot, $Item->setDamage(0));
                         $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
                     } else {
-                        $player->sendMessage("§l§cYou Dont Have Enough Xp For Repair Your Held Item.");
+                        $player->sendMessage("§l§4You Dont Have Enough Xp For Repair Your Held Item. \n§eYou need: §6" . $price - $xp . " §eMore Xp To Repair Items.");
                     }
                 } else {
                     $player->getInventory()->setItem($slot, $Item->setDamage(0));
