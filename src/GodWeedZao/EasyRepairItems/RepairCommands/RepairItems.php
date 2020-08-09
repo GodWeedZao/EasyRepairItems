@@ -41,7 +41,9 @@ class RepairItems
                         if ($money >= $enchantedPrice) {
                             $EconomyAPI->reduceMoney($player, $price);
                             $player->getInventory()->setItem($slot, $Item->setDamage(0));
-                            $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                            if (Main::Config("Send-Title-Success") === true) {
+                                $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                            }
                         } else {
                             $player->sendMessage("§l§cYou Dont Have Enough Money For Repair Your Held Item. \n§eYou need: §6" . $enchantedPrice - $money . " §eMore Money To Repair Items.");
                         }
@@ -49,13 +51,17 @@ class RepairItems
                     if ($money >= $price) {
                         $EconomyAPI->reduceMoney($player, $price);
                         $player->getInventory()->setItem($slot, $Item->setDamage(0));
-                        $player->addTitle(Main::Config("Success"), "§bRepaired Successful.");
+                        if (Main::Config("Send-Title-Success") === true) {
+                            $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                        }
                     } else {
                         $player->sendMessage("§l§4You Dont Have Enough Money For Repair Your Held Item. \n§eYou need: §6" . $price - $money . " §eMore Money To Repair Items.");
                     }
                 } else {
                     $player->getInventory()->setItem($slot, $Item->setDamage(0));
-                    $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                    if (Main::Config("Send-Title-Success") === true) {
+                        $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                    }
                 }
             } else {
                 $player->sendMessage("§l§4Sorry, Held Item Damage is Max, Repair Failed.");
@@ -74,7 +80,9 @@ class RepairItems
                             $reduce = $this->plugin->MinesXp($xp, $enchantedPrice);
                             $player->setXpLevel($reduce);
                             $player->getInventory()->setItem($slot, $Item->setDamage(0));
-                            $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                            if (Main::Config("Send-Title-Success") === true) {
+                                $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                            }
                         } else {
                             $player->sendMessage("§l§4You Dont Have Enough Xp For Repair Your Held Item. \n§eYou need: §6" . $enchantedPrice - $xp . " §eMore Xp To Repair Items.");
                         }
@@ -83,13 +91,17 @@ class RepairItems
                         $reduce = $this->plugin->MinesXp($xp, $price);
                         $player->setXpLevel($reduce);
                         $player->getInventory()->setItem($slot, $Item->setDamage(0));
-                        $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                        if (Main::Config("Send-Title-Success") === true) {
+                            $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                        }
                     } else {
                         $player->sendMessage("§l§4You Dont Have Enough Xp For Repair Your Held Item. \n§eYou need: §6" . $price - $xp . " §eMore Xp To Repair Items.");
                     }
                 } else {
                     $player->getInventory()->setItem($slot, $Item->setDamage(0));
-                    $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                    if (Main::Config("Send-Title-Success") === true) {
+                        $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
+                    }
                 }
             } else {
                 $player->sendMessage("§l§cYour Item Held Damage is Max!, Repair Failed.");
