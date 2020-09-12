@@ -45,7 +45,7 @@ class RepairItems
                                 $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
                             }
                         } else {
-                            $player->sendMessage("§l§cYou Dont Have Enough Money For Repair Your Held Item. \n§eYou need: §6" . $enchantedPrice - $money . " §eMore Money To Repair Items.");
+                            $player->sendMessage("§l§cYou dont have enough Money.");
                         }
                     }
                     if ($money >= $price) {
@@ -55,7 +55,7 @@ class RepairItems
                             $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
                         }
                     } else {
-                        $player->sendMessage("§l§4You Dont Have Enough Money For Repair Your Held Item. \n§eYou need: §6" . $price - $money . " §eMore Money To Repair Items.");
+                        $player->sendMessage("§l§cYou dont have enough Money.");
                     }
                 } else {
                     $player->getInventory()->setItem($slot, $Item->setDamage(0));
@@ -84,7 +84,7 @@ class RepairItems
                                 $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
                             }
                         } else {
-                            $player->sendMessage("§l§4You Dont Have Enough Xp For Repair Your Held Item. \n§eYou need: §6" . $enchantedPrice - $xp . " §eMore Xp To Repair Items.");
+                            $player->sendMessage("§l§cYou dont have enough Xp.");
                         }
                     }
                     if ($xp >= $price) {
@@ -95,7 +95,7 @@ class RepairItems
                             $player->addTitle(Main::Config("Success"), "§bRepaired Successful");
                         }
                     } else {
-                        $player->sendMessage("§l§4You Dont Have Enough Xp For Repair Your Held Item. \n§eYou need: §6" . $price - $xp . " §eMore Xp To Repair Items.");
+                        $player->sendMessage("§l§cYou dont have enough Xp.");
                     }
                 } else {
                     $player->getInventory()->setItem($slot, $Item->setDamage(0));
